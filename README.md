@@ -2,6 +2,10 @@
 
 > Check password against pwnedpasswords.com using k-anonimity model
 
+[![NPM version](https://badge.fury.io/js/is-password-pwned.svg)](https://www.npmjs.com/package/is-password-pwned/)
+[![Build Status](https://api.travis-ci.com/commenthol/is-password-pwned.svg?branch=master)](https://travis-ci.com/commenthol/is-password-pwned)
+
+See [Searching pwned passwords by range][].    
 Caches all found hashes in LRU cache.
 
 ## API
@@ -32,7 +36,7 @@ if `num === undefined` password hash could not be found in pwnedpasswords.com
 
 -   `password` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** password to verify
 
-Returns **any** await {Number} num - number of found hash
+Returns **await {Number}** num - number of found hashes
 
 ## Installation
 
@@ -50,8 +54,10 @@ $ npm test
 
 ## License
 
-[Unlicense](https://unlicense.org) licensed.
+Unlicense https://unlicense.org
 
 ## References
 
--   [Searching pwned passwords by range](https://haveibeenpwned.com/API/v2#SearchingPwnedPasswordsByRange)
+- [Searching pwned passwords by range][]
+
+[Searching pwned passwords by range]: https://haveibeenpwned.com/API/v2#SearchingPwnedPasswordsByRange

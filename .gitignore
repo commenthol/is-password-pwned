@@ -1,0 +1,9 @@
+node_modules/
+coverage/
+docs/
+dist/
+lib/
+tmp/
+*.log
+*.tgz
+.nyc_output

@@ -1,0 +1,10 @@
+{
+  "env": {
+    "es6": true,
+    "mocha": true
+  },
+  "extends": "standard",
+  "plugins": [ "standard" ],
+  "rules": {
+  }
+}

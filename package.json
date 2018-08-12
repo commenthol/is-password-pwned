@@ -1,0 +1,58 @@
+{
+  "name": "is-password-pwned",
+  "version": "1.0.0-0",
+  "description": "Check password against pwnedpasswords.com using k-anonimity model",
+  "keywords": [
+    "cache",
+    "k-anon",
+    "password",
+    "pwned",
+    "pwnedpasswords",
+    "security",
+    "sha1"
+  ],
+  "homepage": "https://github.com/commenthol/is-password-pwned#readme",
+  "bugs": {
+    "url": "https://github.com/commenthol/is-password-pwned/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/commenthol/is-password-pwned.git"
+  },
+  "license": "Unlicense",
+  "author": "commenthol <commenthol@gmail.com>",
+  "main": "src",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "all": "npm run clean && npm run lint && npm test",
+    "clean": "rimraf coverage .nyc_output",
+    "clean:all": "npm run clean && rimraf node_modules package-lock.json",
+    "coverage": "nyc -r text -r html npm test",
+    "lint": "eslint --fix '**/*.js'",
+    "prepublishOnly": "npm run all",
+    "test": "mocha"
+  },
+  "dependencies": {
+    "map-lru": "^1.0.2",
+    "superagent": "^3.8.3"
+  },
+  "devDependencies": {
+    "debug-level": "^0.3.0",
+    "eslint": "^5.3.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "mocha": "^5.2.0",
+    "nyc": "^12.0.2"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "maintainers": [
+    "commenthol <commenthol@gmail.com>"
+  ]
+}
