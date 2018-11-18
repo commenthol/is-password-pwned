@@ -4,7 +4,7 @@
  */
 
 const assert = require('assert')
-const {rangeResponse} = require('./fixtures')
+const { rangeResponse } = require('./fixtures')
 
 const Pwnd = require('..')
 

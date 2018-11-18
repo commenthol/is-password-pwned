@@ -52,7 +52,7 @@ class Pwnd {
       .retry(2)
       .then(res => res.text)
       .catch(err => {
-        log.error(err, {url})
+        log.error(err, { url })
         return Promise.reject(err)
       })
   }
