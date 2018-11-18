@@ -1,6 +1,6 @@
 {
   "name": "is-password-pwned",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Check password against pwnedpasswords.com using k-anonimity model",
   "keywords": [
     "cache",
