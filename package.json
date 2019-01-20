@@ -22,6 +22,9 @@
   "license": "Unlicense",
   "author": "commenthol <commenthol@gmail.com>",
   "main": "src",
+  "bin": {
+    "pwned": "./bin/pwned.js"
+  },
   "directories": {
     "test": "test"
   },
@@ -30,20 +33,20 @@
     "clean": "rimraf coverage .nyc_output",
     "clean:all": "npm run clean && rimraf node_modules package-lock.json",
     "coverage": "nyc -r text -r html npm test",
-    "lint": "eslint --fix '**/*.js'",
+    "lint": "eslint --fix \"**/*.js\"",
     "prepublishOnly": "npm run all",
     "test": "mocha"
   },
   "dependencies": {
     "debug-level": "^0.3.0",
     "map-lru": "^1.0.2",
-    "superagent": "^4.0.0"
+    "superagent": "^4.1.0"
   },
   "devDependencies": {
-    "eslint": "^5.9.0",
+    "eslint": "^5.12.1",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
     "mocha": "^5.2.0",
