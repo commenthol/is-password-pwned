@@ -12,8 +12,10 @@ Caches all found hashes in LRU cache.
 
 For using from the command line
 
-  npm i -g
-  pwned
+```bash
+$ npm i -g is-password-pwned
+$ pwned
+```
 
 ## API
 
