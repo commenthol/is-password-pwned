@@ -40,17 +40,17 @@
   "dependencies": {
     "debug-level": "^0.3.0",
     "map-lru": "^1.0.2",
-    "superagent": "^4.1.0"
+    "superagent": "^5.0.5"
   },
   "devDependencies": {
-    "eslint": "^5.12.1",
+    "eslint": "^5.16.0",
     "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-node": "^8.0.1",
-    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-node": "^9.0.1",
+    "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-standard": "^4.0.0",
-    "mocha": "^5.2.0",
-    "nyc": "^13.1.0"
+    "mocha": "^6.1.4",
+    "nyc": "^14.1.0"
   },
   "engines": {
     "node": ">=6.0.0"
