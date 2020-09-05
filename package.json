@@ -38,19 +38,19 @@
     "test": "mocha"
   },
   "dependencies": {
-    "debug-level": "^0.3.0",
-    "map-lru": "^1.0.2",
-    "superagent": "^5.0.5"
+    "debug-level": "^0.3.2",
+    "map-lru": "^1.1.0",
+    "superagent": "^6.1.0"
   },
   "devDependencies": {
-    "eslint": "^5.16.0",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.17.2",
-    "eslint-plugin-node": "^9.0.1",
-    "eslint-plugin-promise": "^4.1.1",
-    "eslint-plugin-standard": "^4.0.0",
-    "mocha": "^6.1.4",
-    "nyc": "^14.1.0"
+    "eslint": "^7.8.1",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "mocha": "^8.1.3",
+    "nyc": "^15.1.0"
   },
   "engines": {
     "node": ">=6.0.0"
