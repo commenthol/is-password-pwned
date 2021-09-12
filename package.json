@@ -38,18 +38,18 @@
     "test": "mocha"
   },
   "dependencies": {
-    "debug-level": "^2.0.2",
+    "debug-level": "^2.1.0",
     "map-lru": "^1.1.0",
     "superagent": "^6.1.0"
   },
   "devDependencies": {
-    "c8": "^7.7.1",
-    "eslint": "^7.24.0",
-    "eslint-config-standard": "^16.0.2",
-    "eslint-plugin-import": "^2.22.1",
+    "c8": "^7.9.0",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.3.1",
-    "mocha": "^8.3.2"
+    "eslint-plugin-promise": "^5.1.0",
+    "mocha": "^9.1.1"
   },
   "engines": {
     "node": ">=6.0.0"
