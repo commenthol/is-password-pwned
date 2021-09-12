@@ -8,6 +8,8 @@
 See [Searching pwned passwords by range][].    
 Caches all found hashes in LRU cache.
 
+Runs in node and modern browsers.
+
 ## CLI
 
 For using from the command line
@@ -30,7 +32,8 @@ $ pwned
 **Examples**
 
 ```javascript
-const Pwnd = require('is-password-pwned')
+import Pwnd from 'is-password-pwned'
+
 const pwnd = new Pwnd()
 const num = await pwnd.get('nutella')
 //> num = 20833

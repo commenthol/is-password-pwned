@@ -4,14 +4,37 @@
  */
 
 import assert from 'assert'
+import jsdom from 'jsdom-global'
 import { rangeResponse } from './fixtures.js'
-import Pwnd from '../src/index.js'
+import Pwnd from '../src/browser.js'
+// shims
+import fetch from 'node-fetch'
+import { webcrypto } from 'crypto'
 
-describe('Pwnd/node', function () {
-  const pwnd = new Pwnd()
+describe('Pwnd/browser', function () {
+  before(function () {
+    this.jsdom = jsdom('', {
+      url: 'https://example.org/',
+      referrer: 'https://example.com/',
+      contentType: 'text/html'
+    })
+    global.fetch = fetch
+    global.crypto = webcrypto
+  })
 
-  it('should hash password', function () {
-    const digest = Pwnd.sha1('nutella')
+  after(function () {
+    this.jsdom()
+    delete global.fetch
+    delete global.crypto
+  })
+
+  let pwnd
+  before(function () {
+    pwnd = new Pwnd()
+  })
+
+  it('should hash password', async function () {
+    const digest = await Pwnd.sha1('nutella')
     assert.strictEqual(digest, 'B3D60A34B744159793C483B067C56D8AFFC5111A')
   })
 
