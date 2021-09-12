@@ -3,7 +3,7 @@
 > Check password against pwnedpasswords.com using k-anonimity model
 
 [![NPM version](https://badge.fury.io/js/is-password-pwned.svg)](https://www.npmjs.com/package/is-password-pwned/)
-[![Build Status](https://api.travis-ci.com/commenthol/is-password-pwned.svg?branch=master)](https://travis-ci.com/commenthol/is-password-pwned)
+[![Build Status](https://app.travis-ci.com/commenthol/is-password-pwned.svg?branch=master)](https://app.travis-ci.com/commenthol/is-password-pwned)
 
 See [Searching pwned passwords by range][].    
 Caches all found hashes in LRU cache.
