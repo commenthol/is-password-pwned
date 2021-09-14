@@ -1,6 +1,6 @@
 {
   "name": "is-password-pwned",
-  "version": "1.1.5",
+  "version": "2.0.0-0",
   "description": "Check password against pwnedpasswords.com using k-anonimity model",
   "keywords": [
     "cache",
@@ -21,25 +21,41 @@
   },
   "license": "Unlicense",
   "author": "commenthol <commenthol@gmail.com>",
-  "main": "src",
+  "maintainers": [
+    "commenthol <commenthol@gmail.com>"
+  ],
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": "./src/index.js",
+      "require": "./lib/index.cjs",
+      "browser": "./src/browser.js"
+    }
+  },
+  "main": "lib/index.cjs",
+  "module": "src/index.js",
+  "browser": "src/browser.js",
   "bin": {
-    "pwned": "bin/pwned.js"
+    "pwned": "bin/pwned.cjs"
   },
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "all": "npm run clean && npm run lint && npm test",
-    "clean": "rimraf coverage .nyc_output",
+    "all": "npm run clean && npm run build && npm run lint && npm test",
+    "clean": "rimraf coverage lib",
     "clean:all": "npm run clean && rimraf node_modules package-lock.json",
     "coverage": "nyc -r text -r html npm test",
     "lint": "eslint --fix \"**/*.js\"",
     "prepublishOnly": "npm run all",
-    "test": "mocha"
+    "build": "rollup -c",
+    "test": "mocha",
+    "example": "hs . -a localhost -o"
   },
   "dependencies": {
     "debug-level": "^2.1.0",
-    "map-lru": "^1.1.0",
+    "map-lru": "^2.0.0",
     "superagent": "^6.1.0"
   },
   "devDependencies": {
@@ -49,12 +65,12 @@
     "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
-    "mocha": "^9.1.1"
+    "jsdom-global": "^3.0.2",
+    "mocha": "^9.1.1",
+    "node-fetch": "^3.0.0",
+    "rollup": "^2.56.3"
   },
   "engines": {
-    "node": ">=6.0.0"
-  },
-  "maintainers": [
-    "commenthol <commenthol@gmail.com>"
-  ]
+    "node": ">=12.0.0"
+  }
 }

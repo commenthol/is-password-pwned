@@ -7,3 +7,5 @@ tmp/
 *.tgz
 .*
 Makefile
+rollup.config.mjs
+index.html

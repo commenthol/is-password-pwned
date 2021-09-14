@@ -3,26 +3,19 @@
  * @copyright Unlicense
  */
 
-import crypto from 'crypto'
-import MapLRU from 'map-lru'
-import request from 'superagent'
-import debug from 'debug-level'
 import { URL } from './constants.js'
-
-const log = debug.log('pwnd')
 
 class Pwnd {
   /**
    * @constructor
-   * @param {Number} [size=10000] - size of lru cache
    * @example
-   * const Pwnd = require('is-password-pwned')
+   * impoer Pwnd = require('is-password-pwned')
    * const pwnd = new Pwnd()
    * const num = await pwnd.get('nutella')
    * //> num = 20833
    */
-  constructor (size = 10000) {
-    this.map = new MapLRU(size)
+  constructor () {
+    this.map = new Map()
   }
 
   /**
@@ -31,15 +24,15 @@ class Pwnd {
    * @param {String} password - password to verify
    * @return await {Number} num - number of found hashes
    */
-  get (password) {
-    const hash = Pwnd.sha1(password)
+  async get (password) {
+    const hash = await Pwnd.sha1(password)
     if (!this.map.has(hash)) {
       const prefix = Pwnd.prefix(hash)
       return this._range(prefix)
         .then(text => this._set(prefix, text))
         .then(() => this.map.get(hash))
     } else {
-      return Promise.resolve(this.map.get(hash))
+      return this.map.get(hash)
     }
   }
 
@@ -47,20 +40,21 @@ class Pwnd {
    * @private
    * range request against pwnd api
    */
-  _range (prefix) {
+  async _range (prefix) {
     const url = URL + prefix
-    return request.get(url)
-      .retry(2)
-      .then(res => res.text)
-      .catch(err => {
-        log.error(err, { url })
-        return Promise.reject(err)
-      })
+    const res = await fetch(url)
+    const text = await res.text()
+    if (res.status < 300) {
+      return text
+    }
+    const err = new Error(text)
+    err.status = res.status
+    throw err
   }
 
   /**
    * @private
-   * set lru cache with fresh hashes
+   * set cache with fresh hashes
    * @param {String} prefix - 5char prefix
    * @param {String} text - response from pwndpasswords
    */
@@ -85,10 +79,10 @@ Pwnd.prefix = (hash) => hash.substr(0, 5)
  * sha1 hashed value of password
  * @private
  */
-Pwnd.sha1 = (password) => {
-  const hash = crypto.createHash('sha1')
-  hash.update(password)
-  const digest = hash.digest('hex').toUpperCase()
+Pwnd.sha1 = async (password) => {
+  const buffer = (new TextEncoder()).encode(password)
+  const hash = await crypto.subtle.digest('SHA-1', buffer)
+  const digest = Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('').toUpperCase()
   return digest
 }
 
